@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.edu.upc.growent.activities.CategoryActivity">
+    <TextView
+        android:id="@+id/titleBalanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingresos"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/margin_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/subtitleBalanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Cúal es tu ingreso mensual?"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/default_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBalanceTextView"
+        />
+
+    <ImageView
+        android:id="@+id/newFragment"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        app:layout_constraintTop_toBottomOf="@id/subtitleBalanceTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/iconBalanceImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/ic_monetization_on_teal_24dp"
+        app:layout_constraintTop_toBottomOf="@id/newFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/default_margin"
+        />
+    <EditText
+        android:id="@+id/BalanceEditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Ingresa tu saldo mensual"
+        android:maxLength="25"
+        app:layout_constraintStart_toEndOf="@id/iconBalanceImageView"
+        app:layout_constraintTop_toBottomOf="@id/newFragment"
+        android:layout_margin="@dimen/default_margin"
+        android:textColor="@color/colorPrimaryDark"
+        />
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:contextClickable="true"
+        android:text="continuar"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/BalanceEditText"
+        android:layout_margin="@dimen/margin_button"
+        />
+
+</android.support.constraint.ConstraintLayout>

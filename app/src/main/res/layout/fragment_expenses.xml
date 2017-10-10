@@ -1,0 +1,141 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="pe.edu.upc.growent.fragments.ExpensesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/addTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar Movimiento"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/margin_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageView
+            android:id="@+id/walletImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/ic_folder_teal_24dp"
+            app:layout_constraintTop_toBottomOf="@id/addTitleTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageView
+            android:id="@+id/iconBalanceImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_monetization_on_teal_24dp"
+            app:layout_constraintTop_toBottomOf="@id/walletImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/default_margin"
+            />
+        <EditText
+            android:id="@+id/BalanceEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Ingresa movimiento"
+            android:maxLength="25"
+            android:layout_margin="@dimen/default_margin"
+            app:layout_constraintStart_toEndOf="@id/iconBalanceImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/walletImageView"
+            android:textColor="@color/colorPrimaryDark"
+            tools:layout_editor_absoluteX="242dp"
+            android:layout_marginTop="15dp" />
+
+        <ImageView
+            android:id="@+id/hourImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_access_time_teal_24dp"
+            app:layout_constraintTop_toBottomOf="@id/BalanceEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/default_margin"
+            />
+        <EditText
+            android:id="@+id/hourEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Hora"
+            android:maxLength="25"
+            app:layout_constraintStart_toEndOf="@id/hourImageView"
+            app:layout_constraintTop_toBottomOf="@id/BalanceEditText"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="@dimen/default_margin"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/descriptionImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_person_pin_circle_teal_24dp"
+            app:layout_constraintTop_toBottomOf="@id/hourEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/default_margin"
+            />
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Añade una ubicación"
+            android:maxLength="25"
+            app:layout_constraintStart_toEndOf="@id/descriptionImageView"
+            app:layout_constraintTop_toBottomOf="@id/hourEditText"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="@dimen/default_margin"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageButton
+            android:id="@+id/cameraImageButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/ic_camera_alt_teal_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionEditText"
+            app:layout_constraintEnd_toStartOf="@+id/addPhotoImageButton"
+            android:layout_margin="@dimen/default_margin"
+            />
+        <ImageButton
+            android:id="@+id/addPhotoImageButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/ic_insert_photo_teal_24dp"
+            app:layout_constraintStart_toEndOf="@id/cameraImageButton"
+            app:layout_constraintTop_toBottomOf="@id/descriptionEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/default_margin"
+
+
+            />
+        <Button
+            android:id="@+id/acceptButton"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:contextClickable="true"
+            android:text="Aceptar"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cameraImageButton"
+            android:layout_margin="@dimen/margin_button"
+            />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
