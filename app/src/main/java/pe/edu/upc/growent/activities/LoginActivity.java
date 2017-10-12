@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import pe.edu.upc.growent.R;
@@ -11,14 +12,14 @@ import pe.edu.upc.growent.R;
 public class LoginActivity extends AppCompatActivity {
 
     TextView signupTextView;
-    TextView loginTextView;
+    Button loginTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         signupTextView = (TextView) findViewById(R.id.signupTextView);
-        loginTextView =  (TextView) findViewById(R.id.loginTextView);
+        loginTextView =  (Button) findViewById(R.id.loginButton);
 
         signupTextView.setOnClickListener(new View.OnClickListener() {
             @Override

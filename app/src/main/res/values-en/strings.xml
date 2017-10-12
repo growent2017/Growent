@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Growent</string>
     <string name="google_maps_key">"\nAIzaSyBVCxE0kj1dnZtkU4unQ6wcT0VOKYLc0I8\n    "</string>
     <string name="title_activity_home">Home</string>
@@ -11,5 +10,4 @@
     <string name="sing_in">Sing in</string>
     <string name="sign_up">Sign Up</string>
     <string name="forgot_your_password">Forgot your password?</string>
-
 </resources>

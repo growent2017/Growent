@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="google_maps_key">"\nAIzaSyBVCxE0kj1dnZtkU4unQ6wcT0VOKYLc0I8\n"</string>
+    <string name="app_name">Growent</string>
+    <string name="title_activity_home">Inicio</string>
+    <string name="title_activity_maps">Mapas</string>
+
+    <string name="e_mail">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="sing_in">INICIAR SESIÓN</string>
+    <string name="sign_up">CREAR CUENTA DE GROWENT</string>
+    <string name="forgot_your_password">¿Olvidaste tu contraseña?</string>
+
+</resources>
