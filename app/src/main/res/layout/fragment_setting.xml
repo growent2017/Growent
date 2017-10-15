@@ -11,14 +11,36 @@
         android:layout_height="match_parent">
 
 
+        <RelativeLayout
+            android:id="@+id/firstRelativeLayout"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="@string/logo"
+            />
+        <TextView
+            android:id="@+id/configurationBalanceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/configuration"
+            android:textColor="@color/white_text"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/margin_title"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp" />
+
         <ImageView
             android:id="@+id/personImageView"
             android:layout_width="150dp"
             android:layout_height="150dp"
             app:srcCompat="@drawable/ic_person_teal_24dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/firstRelativeLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/icon"
+            android:layout_margin="@dimen/default_margin"
             />
         <ImageView
             android:id="@+id/iconNameImageView"
@@ -27,6 +49,7 @@
             app:srcCompat="@drawable/ic_account_box_teal_24dp"
             app:layout_constraintTop_toBottomOf="@id/personImageView"
             app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/icon"
             android:layout_margin="@dimen/default_margin"
             />
         <EditText
@@ -34,7 +57,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="Nombres"
+            android:hint="@string/name_text"
             android:maxLength="25"
             app:layout_constraintStart_toEndOf="@id/iconNameImageView"
             app:layout_constraintTop_toBottomOf="@id/personImageView"
@@ -48,14 +71,15 @@
             app:srcCompat="@drawable/ic_mail_teal_24dp"
             app:layout_constraintTop_toBottomOf="@id/nameEditText"
             app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/icon"
             android:layout_margin="@dimen/default_margin"
             />
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Correo Electrónico"
+            android:inputType="textEmailAddress"
+            android:hint="@string/e_mail"
             android:maxLength="25"
             app:layout_constraintStart_toEndOf="@id/iconNameImageView"
             app:layout_constraintTop_toBottomOf="@id/nameEditText"
@@ -70,6 +94,7 @@
             app:srcCompat="@drawable/ic_lock_teal_24dp"
             app:layout_constraintTop_toBottomOf="@id/emailEditText"
             app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/icon"
             android:layout_margin="@dimen/default_margin"
             />
 
@@ -78,7 +103,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Contraseña"
+            android:hint="@string/password"
             android:textColor="@color/colorPrimaryDark"
             android:maxLength="25"
             app:layout_constraintStart_toEndOf="@id/logoPasswordImageView"
@@ -94,6 +119,7 @@
             app:srcCompat="@drawable/ic_monetization_on_teal_24dp"
             app:layout_constraintTop_toBottomOf="@id/passwordEditText"
             app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/icon"
             android:layout_margin="@dimen/default_margin"
             />
 
@@ -102,7 +128,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Saldo"
+            android:hint="@string/income"
             android:textColor="@color/colorPrimaryDark"
             android:maxLength="25"
             app:layout_constraintStart_toEndOf="@id/incomeImageView"
@@ -113,16 +139,16 @@
 
         <Button
             android:id="@+id/nextButton"
-            android:layout_width="350dp"
+            android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            android:contextClickable="true"
-            android:text="Guardar"
-            android:textColor="@color/colorAccent"
+            android:text="@string/save_changues"
+            android:textColor="@color/white_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/incomeEditText"
             android:layout_margin="@dimen/margin_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
 

@@ -17,5 +17,20 @@
     <string name="icon">icon</string>
     <string name="find_you_account">Find You Account</string>
     <string name="find_your_account_button">FIND YOUR ACCOUNT</string>
+    <string name="income">Income</string>
+    <string name="what_is_your_monthly_income">What is your monthly income?</string>
+    <string name="enter_your_income">Enter your income</string>
+    <string name="add">ADD</string>
+    <string name="place">Place</string>
+    <string name="hour">Hour</string>
+    <string name="add_movement">Add movement</string>
+    <string name="configuration">Configuration</string>
+    <string name="save_changues">SAVE CHANGUES</string>
+    <string name="category">Category</string>
+    <string name="home">Home</string>
+    <string name="shop">Shop</string>
+    <string name="debts">Debts</string>
+    <string name="add_category">Add category</string>
+    <string name="movement">Movement</string>
 
 </resources>

@@ -15,6 +15,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_margin="@dimen/default_margin"
+            android:contentDescription="@string/logo"
 
             />
         <TextView
@@ -24,7 +25,7 @@
             android:gravity="center_horizontal"
             android:layout_margin="@dimen/default_margin"
             android:textStyle="bold"
-            android:text="Gasto"
+            android:text="@string/movement"
             app:layout_constraintTop_toBottomOf="@id/exampleImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -36,7 +37,7 @@
             android:gravity="center_horizontal"
             android:layout_margin="@dimen/default_margin"
             android:textStyle="bold"
-            android:text="Hora"
+            android:text="@string/hour"
             app:layout_constraintTop_toBottomOf="@id/expensesTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
