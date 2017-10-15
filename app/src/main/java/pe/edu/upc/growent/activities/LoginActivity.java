@@ -11,20 +11,29 @@ import pe.edu.upc.growent.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView signupTextView;
+    TextView signUpTextView;
+    TextView forgotTextView;
     Button loginTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        signupTextView = (TextView) findViewById(R.id.signupTextView);
+        signUpTextView = (TextView) findViewById(R.id.signUpTextView);
         loginTextView =  (Button) findViewById(R.id.loginButton);
-
-        signupTextView.setOnClickListener(new View.OnClickListener() {
+        forgotTextView =(TextView) findViewById(R.id.forgotTextView);
+        signUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        forgotTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent);
             }
         });

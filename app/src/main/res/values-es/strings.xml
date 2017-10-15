@@ -10,5 +10,11 @@
     <string name="sing_in">INICIAR SESIÓN</string>
     <string name="sign_up">CREAR CUENTA DE GROWENT</string>
     <string name="forgot_your_password">¿Olvidaste tu contraseña?</string>
+    <string name="text_continue">CONTINUAR</string>
+    <string name="name_text">Nombres</string>
+    <string name="logo">Logo</string>
+    <string name="icon">icon</string>
+    <string name="find_you_account">Recupera tu cuenta</string>
+    <string name="find_your_account_button">RECUPERA TU CUENTA</string>
 
 </resources>

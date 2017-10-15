@@ -11,5 +11,11 @@
     <string name="sing_in">Sing in</string>
     <string name="sign_up">Sign Up</string>
     <string name="forgot_your_password">Forgot your password?</string>
+    <string name="text_continue">CONTINUE</string>
+    <string name="name_text">Name</string>
+    <string name="logo">Logo</string>
+    <string name="icon">icon</string>
+    <string name="find_you_account">Find You Account</string>
+    <string name="find_your_account_button">FIND YOUR ACCOUNT</string>
 
 </resources>

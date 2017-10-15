@@ -8,91 +8,93 @@
 
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="250dp"
-        android:src="@drawable/ic_logo"
+        android:src="@drawable/ic_logo_teal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        android:contentDescription="@string/logo"
+        tools:layout_editor_absoluteX="67dp" />
     <ImageView
         android:id="@+id/iconNameImageView"
         android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_height="43dp"
         app:srcCompat="@drawable/ic_account_box_teal_24dp"
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="@dimen/default_margin"
+        android:contentDescription="@string/icon"
         />
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Nombres"
+        android:hint="@string/name_text"
         android:maxLength="25"
         app:layout_constraintStart_toEndOf="@id/iconNameImageView"
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         android:layout_margin="@dimen/default_margin"
-        android:textColor="@color/colorPrimaryDark"
-        />
+        android:textColor="@color/primary_text"
+        tools:layout_editor_absoluteX="56dp" />
     <ImageView
         android:id="@+id/iconEmailImageView"
         android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_height="43dp"
         app:srcCompat="@drawable/ic_mail_teal_24dp"
         app:layout_constraintTop_toBottomOf="@id/iconNameImageView"
         app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/icon"
         android:layout_margin="@dimen/default_margin"
-        />
+        tools:layout_editor_absoluteX="8dp" />
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Correo Electrónico"
+        android:inputType="textWebEmailAddress"
+        android:hint="@string/e_mail"
         android:maxLength="25"
         app:layout_constraintStart_toEndOf="@id/iconNameImageView"
         app:layout_constraintTop_toBottomOf="@id/nameEditText"
         android:layout_margin="@dimen/default_margin"
-        android:textColor="@color/colorPrimaryDark"
-        />
+        android:textColor="@color/primary_text"/>
 
     <ImageView
         android:id="@+id/logoPasswordImageView"
         android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_height="42dp"
         app:srcCompat="@drawable/ic_lock_teal_24dp"
         app:layout_constraintTop_toBottomOf="@id/iconEmailImageView"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="@dimen/default_margin"
-        />
+        android:contentDescription="@string/icon"/>
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="Contraseña"
-        android:textColor="@color/colorPrimaryDark"
+        android:hint="@string/password"
+        android:textColor="@color/primary_text"
         android:maxLength="25"
         app:layout_constraintStart_toEndOf="@id/logoPasswordImageView"
         app:layout_constraintTop_toBottomOf="@id/emailEditText"
         android:layout_margin="@dimen/default_margin"
 
-        />
+        tools:layout_editor_absoluteX="56dp" />
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
-        android:contextClickable="true"
-        android:text="continuar"
-        android:textColor="@color/colorAccent"
+        android:text="@string/text_continue"
+        android:textColor="@color/white_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/margin_button"
         />
 

@@ -16,18 +16,25 @@
         android:roundIcon="@mipmap/ic_isotipo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.LoginActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.HomeActivity"
-            android:label="@string/title_activity_home" />
-        <activity android:name=".activities.SignUpActivity" />
-        <activity android:name=".activities.CategoryActivity" />
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CategoryActivity"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,7 +49,9 @@
 
         <activity
             android:name=".activities.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.ForgotPasswordActivity"></activity>
     </application>
 
 </manifest>
