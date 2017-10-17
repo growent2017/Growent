@@ -1,10 +1,9 @@
 package pe.edu.upc.growent.models;
 
-/**
- * Created by Usuario on 15/10/2017.
- */
+import android.os.Bundle;
 
 public class Movement {
+
     private String hour;
     private String movement;
     private String place;
@@ -43,5 +42,18 @@ public class Movement {
     public Movement setPlace(String place) {
         this.place = place;
         return this;
+    }
+    public Bundle toBundle(){
+        Bundle bundle = new Bundle();
+        bundle.putString("hour",hour);
+        bundle.putString("movement",movement);
+        bundle.putString("place",place);
+        return bundle;
+    }
+    public static Movement fromBundle(Bundle bundle){
+        Movement movement = new Movement();
+        return movement.setHour(bundle.getString("hour"))
+                .setMovement(bundle.getString("movement"))
+                .setPlace(bundle.getString("place"));
     }
 }

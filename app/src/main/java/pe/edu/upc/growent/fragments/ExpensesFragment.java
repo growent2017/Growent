@@ -7,15 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import pe.edu.upc.growent.R;
+import pe.edu.upc.growent.models.MovementRepository;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ExpensesFragment extends Fragment {
 
-    Button addPhotoImageButton;
+    EditText incomeEditText;
+    EditText hourEditText;
+    EditText placeEditText;
+    Button acceptButton;
     public ExpensesFragment() {
         // Required empty public constructor
     }
@@ -25,10 +30,26 @@ public class ExpensesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_expenses, container, false);
+        incomeEditText = (EditText) view.findViewById(R.id.incomeEditText);
+        hourEditText = (EditText) view.findViewById(R.id.hourEditText);
+        placeEditText = (EditText) view.findViewById(R.id.placeEditText);
 
-        addPhotoImageButton = (Button) view.findViewById(R.id.addPhotoImageButton);
-        return inflater.inflate(R.layout.fragment_expenses, container, false);
+        acceptButton = (Button) view.findViewById(R.id.acceptButton);
+        acceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MovementRepository.getInstance().
+                addMovement(hourEditText.getText().toString(),
+                        incomeEditText.getText().toString(),placeEditText.getText().toString());
+                clearFields();
+            }
+        });
+        return view;
     }
-
+    private void clearFields(){
+        incomeEditText.setText("");
+        hourEditText.setText("");
+        placeEditText.setText("");
+    }
 }
