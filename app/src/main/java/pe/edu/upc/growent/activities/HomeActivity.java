@@ -16,7 +16,6 @@ import pe.edu.upc.growent.fragments.SettingFragment;
 public class HomeActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
-    private TextView mTextMessage2;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
