@@ -31,5 +31,9 @@
     <string name="debts">Deudas</string>
     <string name="add_category">Agregar categoría</string>
     <string name="movement">Movimiento</string>
+    <string name="my_profile">MI PERFIL</string>
+    <string name="my_profile_appercase">My profile</string>
+    <string name="example_name">Alexander Giovanni Gamarra Tafur</string>
+    <string name="log_out">Log Out</string>
 
 </resources>

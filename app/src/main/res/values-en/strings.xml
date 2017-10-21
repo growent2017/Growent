@@ -24,11 +24,15 @@
     <string name="hour">Hour</string>
     <string name="add_movement">Add movement</string>
     <string name="configuration">Configuration</string>
-    <string name="save_changues">GUARDAR CAMBIOS</string>
+    <string name="save_changues">Save Changues</string>
     <string name="category">Category</string>
     <string name="home">Home</string>
     <string name="shop">Shop</string>
     <string name="debts">Debts</string>
     <string name="add_category">Add category</string>
     <string name="movement">Movement</string>
+    <string name="my_profile">My Profile</string>
+    <string name="my_profile_appercase">My profile</string>
+    <string name="example_name">Alexander Giovanni Gamarra Tafur</string>
+    <string name="log_out">Log Out</string>
 </resources>
