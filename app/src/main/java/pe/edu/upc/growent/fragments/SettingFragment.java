@@ -11,6 +11,8 @@ import android.widget.Button;
 
 import pe.edu.upc.growent.R;
 import pe.edu.upc.growent.activities.EditPerfilActivity;
+import pe.edu.upc.growent.activities.HomeActivity;
+import pe.edu.upc.growent.activities.LoginActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +31,7 @@ public class SettingFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
@@ -37,11 +39,10 @@ public class SettingFragment extends Fragment {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), EditPerfilActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(getActivity(), EditPerfilActivity.class);
+                getActivity().startActivity(intent);
             }
         });
-
         return view;
     }
 

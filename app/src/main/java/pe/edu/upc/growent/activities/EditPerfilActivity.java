@@ -5,19 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import pe.edu.upc.growent.R;
 import pe.edu.upc.growent.fragments.HomeFragment;
 import pe.edu.upc.growent.fragments.SettingFragment;
-
 public class EditPerfilActivity extends AppCompatActivity {
-
-    Button arrowImageView;
+    ImageView arrowImageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        arrowImageView = (Button) findViewById(R.id.arrowImageView) ;
+        setContentView(R.layout.activity_edit_perfil);
+        arrowImageView = (ImageView) findViewById(R.id.arrowImageView) ;
         arrowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -25,6 +25,5 @@ public class EditPerfilActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        setContentView(R.layout.activity_edit_perfil);
     }
 }
