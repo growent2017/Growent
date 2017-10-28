@@ -3,20 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_margin="2dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"   >
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin">
         <ImageView
             android:id="@+id/exampleImageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@mipmap/ic_launcher"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintTop_toTopOf="parent"
             android:layout_margin="@dimen/default_margin"
             android:contentDescription="@string/logo"
+            app:layout_constraintStart_toStartOf="parent"
+
 
             />
         <TextView
@@ -27,10 +33,12 @@
             android:layout_margin="@dimen/default_margin"
             android:textStyle="bold"
             android:text="@string/movement"
-            app:layout_constraintTop_toBottomOf="@id/exampleImageView"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/exampleImageView"
             android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="15sp"
+            />
 
         <TextView
             android:id="@+id/hourTextView"
@@ -41,8 +49,8 @@
             android:textStyle="bold"
             android:text="@string/hour"
             app:layout_constraintTop_toBottomOf="@id/incomeTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintStart_toEndOf="@id/exampleImageView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
@@ -54,8 +62,8 @@
             android:textStyle="bold"
             android:text="@string/place"
             app:layout_constraintTop_toBottomOf="@id/hourTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintStart_toEndOf="@id/exampleImageView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent" />
 
     </android.support.constraint.ConstraintLayout>

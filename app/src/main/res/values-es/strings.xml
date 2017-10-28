@@ -35,5 +35,6 @@
     <string name="my_profile_appercase">My profile</string>
     <string name="example_name">Alexander Giovanni Gamarra Tafur</string>
     <string name="log_out">Log Out</string>
+    <string name="information_invalidate">Información invalida</string>
 
 </resources>

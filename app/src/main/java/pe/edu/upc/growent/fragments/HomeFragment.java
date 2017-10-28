@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
         View view=  inflater.inflate(R.layout.fragment_home, container, false);
         movementRecyclerView  = view.findViewById(R.id.homeRecyclerView);
         movementAdapter = new MovementAdapter(repository.getInstance().getMovements());
-        movementLayoutManager = new GridLayoutManager(this.getContext(),2);
+        movementLayoutManager = new GridLayoutManager(this.getContext(),1);
         movementRecyclerView.setAdapter(movementAdapter);
         movementRecyclerView.setLayoutManager(movementLayoutManager);
         return view;
