@@ -6,12 +6,28 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.ParsedRequestListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import okio.Source;
 import pe.edu.upc.growent.R;
 import pe.edu.upc.growent.models.User;
 
@@ -22,8 +38,9 @@ public class LoginActivity extends AppCompatActivity {
     Button loginTextView;
     TextInputEditText emailTextInputEditText;
     TextInputEditText passwordTextInputEditText;
-
-    boolean email = false, password = false;
+    List<User> users;
+    User user2;
+    String email2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +66,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
@@ -66,20 +81,31 @@ public class LoginActivity extends AppCompatActivity {
                     emailTextInputEditText.setError(null);
                 }*/
             //ANTES VA ALGO
+                users = new ArrayList<>();
+                user2 = new User();
                 if(emailTextInputEditText.getText().toString().isEmpty())
                     alertDialog();
                 else{
-                    Toast t=Toast.makeText(LoginActivity.this,"Welcome Back", Toast.LENGTH_SHORT);
-                    t.show();
-                    Intent intent = new Intent(LoginActivity.this, CategoryActivity.class);
-                    startActivity(intent);}
-
-
-
-            }
+                    updateSources();
+                    for(User us:users)
+                    {
+                        if(us.getEmail() == emailTextInputEditText.getText().toString())
+                        {
+                            Toast t = Toast.makeText(LoginActivity.this, "Welcome Back", Toast.LENGTH_SHORT);
+                            t.show();
+                            Intent intent = new Intent(LoginActivity.this, CategoryActivity.class);
+                            startActivity(intent);
+                            break;
+                        }
+                        else {
+                            Toast t = Toast.makeText(LoginActivity.this, us.getEmail(), Toast.LENGTH_SHORT);
+                            t.show();
+                        }
+                    }
+                }
+           }
         });
     }
-
     public void alertDialog()
     {
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(LoginActivity.this);
@@ -93,6 +119,28 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         dialogo1.show();
+    }
+    private void updateSources() {
+        // TODO: Update Sources from NewsApi.org
+        AndroidNetworking.get("https://growent-quickv98.c9users.io/users.json")
+                .setPriority(Priority.HIGH.LOW)
+                .setTag(getString(R.string.app_name))
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                          users = User.from(response.getJSONArray("users"));
+                         } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.d(getString(R.string.app_name), anError.getLocalizedMessage());
+                    }
+                });
+
     }
 
 }

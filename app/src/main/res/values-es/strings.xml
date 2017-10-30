@@ -32,9 +32,10 @@
     <string name="add_category">Agregar categoría</string>
     <string name="movement">Movimiento</string>
     <string name="my_profile">MI PERFIL</string>
-    <string name="my_profile_appercase">My profile</string>
+    <string name="my_profile_appercase">Mi Perfil</string>
     <string name="example_name">Alexander Giovanni Gamarra Tafur</string>
-    <string name="log_out">Log Out</string>
+    <string name="log_out">Salir</string>
     <string name="information_invalidate">Información invalida</string>
+    <string name="welcome_back">Bienvenido de nuevo</string>
 
 </resources>

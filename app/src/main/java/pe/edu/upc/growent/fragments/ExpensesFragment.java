@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,8 +16,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
@@ -24,16 +27,24 @@ import pe.edu.upc.growent.R;
 import pe.edu.upc.growent.activities.LoginActivity;
 import pe.edu.upc.growent.models.MovementRepository;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ExpensesFragment extends Fragment {
-    private static final int SELECT_FILE = 1;
+    String mCurrentPhotoPath;
+
+    private static final int PICK_IMAGE = 100;
+    Uri imageUri;
+
+
     static final int REQUEST_IMAGE_CAPTURE = 1;
     EditText incomeEditText;
     EditText hourEditText;
     EditText placeEditText;
     Button acceptButton;
+    ImageView walletImageView;
     ImageButton cameraImageButton;
     ImageButton addPhotoImageButton;
     public ExpensesFragment() {
@@ -48,6 +59,7 @@ public class ExpensesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_expenses, container, false);
         incomeEditText = (EditText) view.findViewById(R.id.incomeEditText);
         hourEditText = (EditText) view.findViewById(R.id.hourEditText);
+        walletImageView = (ImageView) view.findViewById(R.id.walletImageView);
         placeEditText = (EditText) view.findViewById(R.id.placeEditText);
         cameraImageButton = (ImageButton) view.findViewById(R.id.cameraImageButton);
         addPhotoImageButton = (ImageButton) view.findViewById(R.id.addPhotoImageButton );
@@ -76,7 +88,7 @@ public class ExpensesFragment extends Fragment {
         addPhotoImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openGallery(view);
+                galleryAddPic();
             }
         });
         return view;
@@ -95,57 +107,28 @@ public class ExpensesFragment extends Fragment {
         hourEditText.setText("");
         placeEditText.setText("");
     }
-    public void openGallery(View v){
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(
-                Intent.createChooser(intent, "Seleccione una imagen"),
-                SELECT_FILE);
+    public void galleryAddPic(){
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, PICK_IMAGE);
     }
 
 
-
-    public void onActivityResult(int requestCode, int resultCode,
-                                    Intent imageReturnedIntent) {
-        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
-        Uri selectedImageUri = null;
-        Uri selectedImage;
-
-        String filePath = null;
-        switch (requestCode) {
-            case SELECT_FILE:
-                if (resultCode == Activity.RESULT_OK) {
-                    selectedImage = imageReturnedIntent.getData();
-                    String selectedPath=selectedImage.getPath();
-                    if (requestCode == SELECT_FILE) {
-
-                        if (selectedPath != null) {
-                            InputStream imageStream = null;
-                            try {
-                                imageStream = getActivity().getContentResolver().openInputStream(
-                                        selectedImage);
-                            } catch (FileNotFoundException e) {
-                                e.printStackTrace();
-                            }
-
-                            // Transformamos la URI de la imagen a inputStream y este a un Bitmap
-                            Bitmap bmp = BitmapFactory.decodeStream(imageStream);
-
-                            // Ponemos nuestro bitmap en un ImageView que tengamos en la vista
-
-
-
-                        }
-                    }
-                }
-                break;
-        }
-    }
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            walletImageView.setImageBitmap(imageBitmap);
+        }
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            imageUri = data.getData();
+            walletImageView .setImageURI(imageUri);
         }
     }
 }
