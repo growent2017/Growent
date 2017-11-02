@@ -28,7 +28,7 @@
         />
     <EditText
         android:id="@+id/nameEditText"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/name_text"
@@ -48,17 +48,17 @@
         android:contentDescription="@string/icon"
         android:layout_margin="@dimen/default_margin"
         tools:layout_editor_absoluteX="8dp" />
-    <EditText
+
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/emailEditText"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:inputType="textWebEmailAddress"
         android:hint="@string/e_mail"
-        android:maxLength="25"
+        android:maxLength="30"
         app:layout_constraintStart_toEndOf="@id/iconNameImageView"
         app:layout_constraintTop_toBottomOf="@id/nameEditText"
-        android:layout_margin="@dimen/default_margin"
-        android:textColor="@color/primary_text"/>
+        android:layout_margin="@dimen/default_margin"/>
 
     <ImageView
         android:id="@+id/logoPasswordImageView"
@@ -72,7 +72,7 @@
 
     <EditText
         android:id="@+id/passwordEditText"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="@string/password"

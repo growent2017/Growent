@@ -7,6 +7,7 @@
     <string name="title_activity_maps">Maps</string>
 
     <string name="e_mail">E-Mail</string>
+    <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sing_in">Sing in</string>
     <string name="sign_up">Sign Up</string>
@@ -38,5 +39,11 @@
     <string name="log_out">Log Out</string>
     <string name="information_invalidate">Invalidate information</string>
     <string name="welcome_back">Welcome Back</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="email_password_invalid">Email or password invalid</string>
+    <string name="authentication_error">Authentication Error</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm_your_information">Confirm your information</string>
+    <string name="thanks_for_registering">Thanks for registering</string>
 
 </resources>

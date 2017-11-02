@@ -19,6 +19,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,16 +39,13 @@ public class LoginActivity extends AppCompatActivity {
     Button loginTextView;
     TextInputEditText emailTextInputEditText;
     TextInputEditText passwordTextInputEditText;
-    List<User> users;
-    User user2;
-    String email2;
-
+    User user;
+    Boolean email;
+    Boolean invalidEmail=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         signUpTextView = (TextView) findViewById(R.id.signUpTextView);
         loginTextView = (Button) findViewById(R.id.loginButton);
         forgotTextView = (TextView) findViewById(R.id.forgotTextView);
@@ -60,7 +58,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         forgotTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,81 +65,67 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         loginTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                /*if(Patterns.EMAIL_ADDRESS.matcher(emailTextInputEditText.getText().toString()).matches() == false){
-                    emailTextInputEditText.setError("Invalid email");
+                if(Patterns.EMAIL_ADDRESS.matcher(emailTextInputEditText.getText().toString()).matches() == false){
+                    alertDialog();
+                    emailTextInputEditText.setError(getString(R.string.invalid_email));
                     email = false;
                 }else {
                     email = true;
                     emailTextInputEditText.setError(null);
-                }*/
-            //ANTES VA ALGO
-                users = new ArrayList<>();
-                user2 = new User();
-                if(emailTextInputEditText.getText().toString().isEmpty())
-                    alertDialog();
-                else{
-                    updateSources();
-                    for(User us:users)
-                    {
-                        if(us.getEmail() == emailTextInputEditText.getText().toString())
-                        {
-                            Toast t = Toast.makeText(LoginActivity.this, "Welcome Back", Toast.LENGTH_SHORT);
-                            t.show();
-                            Intent intent = new Intent(LoginActivity.this, CategoryActivity.class);
-                            startActivity(intent);
-                            break;
-                        }
-                        else {
-                            Toast t = Toast.makeText(LoginActivity.this, us.getEmail(), Toast.LENGTH_SHORT);
-                            t.show();
-                        }
-                    }
+                    //Json
+                    validateUser(emailTextInputEditText.getText().toString());
                 }
-           }
+            }
         });
     }
-    public void alertDialog()
-    {
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(LoginActivity.this);
-        dialogo1.setTitle("Error de Identificación");
-        dialogo1.setMessage("Email o contraseña incorrecta");
 
-        dialogo1.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {
+    public void alertDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(LoginActivity.this);
+        dialog.setTitle(R.string.authentication_error);
+        dialog.setMessage(R.string.email_password_invalid);
+        dialog.setPositiveButton(R.string.text_continue, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
 
             }
         });
-
-        dialogo1.show();
+        dialog.show();
     }
-    private void updateSources() {
-        // TODO: Update Sources from NewsApi.org
+
+    public void validateUser(final String email){
         AndroidNetworking.get("https://growent-quickv98.c9users.io/users.json")
-                .setPriority(Priority.HIGH.LOW)
+                .setPriority(Priority.LOW)
                 .setTag(getString(R.string.app_name))
                 .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
+                .getAsObjectList(User.class, new ParsedRequestListener<List<User>>() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                          users = User.from(response.getJSONArray("users"));
-                         } catch (JSONException e) {
-                            e.printStackTrace();
+                    public void onResponse(List<User> users) {
+                        // do anything with response
+
+                        for (User user : users) {
+                            if(user.getEmail().equalsIgnoreCase(email)){
+                                invalidEmail = false;
+                                Toast t = Toast.makeText(LoginActivity.this, "Welcome " + user.getName(), Toast.LENGTH_SHORT);
+                                t.show();
+                                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                                startActivity(intent);
+                            }
                         }
                     }
+
                     @Override
                     public void onError(ANError anError) {
-                        Log.d(getString(R.string.app_name), anError.getLocalizedMessage());
                     }
                 });
-
     }
 
 }
+
+
+
+
+
 
 

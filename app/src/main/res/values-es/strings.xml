@@ -6,11 +6,12 @@
     <string name="title_activity_maps">Mapas</string>
 
     <string name="e_mail">Correo electrónico</string>
+    <string name="email">Correo</string>
     <string name="password">Contraseña</string>
     <string name="sing_in">INICIAR SESIÓN</string>
     <string name="sign_up">CREAR CUENTA DE GROWENT</string>
     <string name="forgot_your_password">¿Olvidaste tu contraseña?</string>
-    <string name="text_continue">CONTINUAR</string>
+    <string name="text_continue">Continuar</string>
     <string name="name_text">Nombres</string>
     <string name="logo">Logo</string>
     <string name="icon">icon</string>
@@ -35,7 +36,13 @@
     <string name="my_profile_appercase">Mi Perfil</string>
     <string name="example_name">Alexander Giovanni Gamarra Tafur</string>
     <string name="log_out">Salir</string>
-    <string name="information_invalidate">Información invalida</string>
+    <string name="information_invalidate">Información inválida</string>
     <string name="welcome_back">Bienvenido de nuevo</string>
+    <string name="invalid_email">Correo inválido</string>
+    <string name="email_password_invalid">Correo o contraseña incorrecta</string>
+    <string name="authentication_error">Error de autenticación</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm_your_information">Confirma tu información</string>
+    <string name="thanks_for_registering">Gracias por registrarse</string>
 
 </resources>
