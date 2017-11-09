@@ -1,12 +1,12 @@
 package pe.edu.upc.growent.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -16,19 +16,10 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import okio.Source;
 import pe.edu.upc.growent.R;
 import pe.edu.upc.growent.models.User;
 
@@ -39,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     Button loginTextView;
     TextInputEditText emailTextInputEditText;
     TextInputEditText passwordTextInputEditText;
-    User user;
+    User user_example;
     Boolean email;
     Boolean invalidEmail=true;
     @Override
@@ -68,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         loginTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Patterns.EMAIL_ADDRESS.matcher(emailTextInputEditText.getText().toString()).matches() == false){
+                if(!Patterns.EMAIL_ADDRESS.matcher(emailTextInputEditText.getText().toString()).matches()){
                     alertDialog();
                     emailTextInputEditText.setError(getString(R.string.invalid_email));
                     email = false;
@@ -76,12 +67,13 @@ public class LoginActivity extends AppCompatActivity {
                     email = true;
                     emailTextInputEditText.setError(null);
                     //Json
-                    validateUser(emailTextInputEditText.getText().toString());
+                    validateUser(emailTextInputEditText.getText().toString(),view);
+                    //Intent intent = new Intent(LoginActivity.this, IncomeActivity.class);
+                    //startActivity(intent);
                 }
             }
         });
     }
-
     public void alertDialog() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(LoginActivity.this);
         dialog.setTitle(R.string.authentication_error);
@@ -94,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public void validateUser(final String email){
+    public void validateUser(final String email, final View view){
         AndroidNetworking.get("https://growent-quickv98.c9users.io/users.json")
                 .setPriority(Priority.LOW)
                 .setTag(getString(R.string.app_name))
@@ -105,16 +97,40 @@ public class LoginActivity extends AppCompatActivity {
                         // do anything with response
 
                         for (User user : users) {
-                            if(user.getEmail().equalsIgnoreCase(email)){
-                                invalidEmail = false;
-                                Toast t = Toast.makeText(LoginActivity.this, "Welcome " + user.getName(), Toast.LENGTH_SHORT);
-                                t.show();
-                                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
-                                startActivity(intent);
+                            if(user.getEmail()!= null) {
+                                if (user.getEmail().equalsIgnoreCase(email)) {
+                                    invalidEmail = false;
+                                    user_example = new User(user.getId(), user.getName(), user.getEmail(),
+                                            user.getPassword(), user.getIncome());
+
+                                    Bundle bundle = user_example.toBundle();
+                                    Context context = view.getContext();
+
+                                    //If is a new user
+                                    if (user.getIncome() <= 0) {
+                                        Toast t = Toast.makeText(LoginActivity.this, getString(R.string.welcome) + user.getName(), Toast.LENGTH_SHORT);
+                                        t.show();
+                                        Intent intent = new Intent(context, IncomeActivity.class);
+                                        intent.putExtras(bundle);
+                                        context.startActivity(intent);
+                                    }
+                                    //If not is a new user
+                                    else {
+
+                                        Toast t = Toast.makeText(LoginActivity.this, getString(R.string.welcome) + " " + user.getName(), Toast.LENGTH_SHORT);
+                                        t.show();
+                                        Intent intent = new Intent(context, HomeActivity.class);
+                                        intent.putExtras(bundle);
+                                        context.startActivity(intent);
+
+                                    }
+                                }
                             }
                         }
+                        //Verify invalid email
+                        if(invalidEmail)
+                            alertDialog();
                     }
-
                     @Override
                     public void onError(ANError anError) {
                     }

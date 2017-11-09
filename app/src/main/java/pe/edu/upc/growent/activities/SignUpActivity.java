@@ -42,8 +42,6 @@ public class SignUpActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Toast t = Toast.makeText(SignUpActivity.this, "Adentro", Toast.LENGTH_SHORT);
-                    t.show();
                 if(Patterns.EMAIL_ADDRESS.matcher(emailEditText.getText().toString()).matches() == false){
 
                     emailEditText.setError(getString(R.string.invalid_email));
@@ -92,7 +90,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int id) {
                 Toast t = Toast.makeText(SignUpActivity.this, R.string.thanks_for_registering, Toast.LENGTH_SHORT);
                 t.show();
-                //createUser(name,email,password);
+                createUser(name,email,password);
                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(intent);
             }

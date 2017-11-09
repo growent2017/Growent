@@ -20,6 +20,7 @@ import pe.edu.upc.growent.activities.LoginActivity;
 public class SettingFragment extends Fragment {
 
     Button profileButton;
+    Button logoutButton;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -36,6 +37,7 @@ public class SettingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
         profileButton = (Button) view.findViewById(R.id.profileButton);
+        logoutButton = (Button) view.findViewById(R.id.logoutButton);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +45,14 @@ public class SettingFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
         return view;
     }
 

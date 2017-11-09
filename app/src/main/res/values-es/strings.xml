@@ -44,5 +44,6 @@
     <string name="cancel">Cancelar</string>
     <string name="confirm_your_information">Confirma tu información</string>
     <string name="thanks_for_registering">Gracias por registrarse</string>
+    <string name="welcome">Bienvenido</string>
 
 </resources>

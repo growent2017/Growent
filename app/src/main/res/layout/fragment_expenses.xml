@@ -11,15 +11,15 @@
         android:layout_height="wrap_content">
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:id="@+id/firstRelativeLayout"
-            android:layout_width="400dp"
+            android:layout_width="600dp"
             android:layout_height="50dp"
             android:background="@color/colorPrimary"
             android:contentDescription="@string/logo"
-            />
+             />
         <TextView
             android:id="@+id/addTitleTextView"
             android:layout_width="wrap_content"
@@ -33,27 +33,27 @@
             android:layout_margin="@dimen/margin_title"
             tools:layout_editor_absoluteX="16dp" />
 
-
         <ImageView
             android:id="@+id/walletImageView"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_margin="@dimen/default_margin"
             app:srcCompat="@drawable/ic_folder_teal_24dp"
-            app:layout_constraintTop_toBottomOf="@id/firstRelativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/firstRelativeLayout"
             app:layout_constraintStart_toStartOf="parent"
             android:contentDescription="@string/icon"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteX="-18dp" />
         <ImageView
             android:id="@+id/iconIncomeImageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:srcCompat="@drawable/ic_monetization_on_teal_24dp"
-            app:layout_constraintTop_toBottomOf="@id/walletImageView"
+            app:layout_constraintTop_toBottomOf="@+id/walletImageView"
             app:layout_constraintStart_toStartOf="parent"
             android:contentDescription="@string/icon"
             android:layout_margin="@dimen/default_margin"
-            />
+            tools:layout_editor_absoluteX="8dp" />
         <EditText
             android:id="@+id/incomeEditText"
             android:layout_width="300dp"
@@ -63,9 +63,9 @@
             android:maxLength="25"
             android:layout_margin="@dimen/default_margin"
             app:layout_constraintStart_toEndOf="@id/iconIncomeImageView"
-            app:layout_constraintTop_toBottomOf="@id/walletImageView"
+            app:layout_constraintTop_toBottomOf="@+id/walletImageView"
             android:textColor="@color/primary_text"
-            tools:layout_editor_absoluteX="242dp"
+            tools:layout_editor_absoluteX="56dp"
             android:layout_marginTop="15dp" />
 
         <ImageView
@@ -73,11 +73,11 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:srcCompat="@drawable/ic_access_time_teal_24dp"
-            app:layout_constraintTop_toBottomOf="@id/incomeEditText"
+            app:layout_constraintTop_toBottomOf="@+id/incomeEditText"
             android:contentDescription="@string/icon"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="@dimen/default_margin"
-            />
+            tools:layout_editor_absoluteX="8dp" />
         <EditText
             android:id="@+id/hourEditText"
             android:layout_width="300dp"
@@ -86,21 +86,21 @@
             android:hint="@string/hour"
             android:maxLength="25"
             app:layout_constraintStart_toEndOf="@id/hourImageView"
-            app:layout_constraintTop_toBottomOf="@id/incomeEditText"
+            app:layout_constraintTop_toBottomOf="@+id/incomeEditText"
             android:textColor="@color/primary_text"
             android:layout_margin="@dimen/default_margin"
-            />
+            tools:layout_editor_absoluteX="56dp" />
 
         <ImageView
             android:id="@+id/placeImageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:srcCompat="@drawable/ic_person_pin_circle_teal_24dp"
-            app:layout_constraintTop_toBottomOf="@id/hourEditText"
+            app:layout_constraintTop_toBottomOf="@+id/hourEditText"
             android:contentDescription="@string/icon"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="@dimen/default_margin"
-            />
+            tools:layout_editor_absoluteX="8dp" />
         <EditText
             android:id="@+id/placeEditText"
             android:layout_width="300dp"
@@ -109,33 +109,32 @@
             android:hint="@string/place"
             android:maxLength="25"
             app:layout_constraintStart_toEndOf="@id/placeImageView"
-            app:layout_constraintTop_toBottomOf="@id/hourEditText"
+            app:layout_constraintTop_toBottomOf="@+id/hourEditText"
             android:textColor="@color/primary_text"
-            android:layout_margin="@dimen/default_margin"/>
+            android:layout_margin="@dimen/default_margin"
+            tools:layout_editor_absoluteX="56dp" />
         <ImageButton
             android:id="@+id/cameraImageButton"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:srcCompat="@drawable/ic_camera_alt_teal_24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/placeEditText"
+            app:layout_constraintTop_toBottomOf="@+id/placeEditText"
             app:layout_constraintEnd_toStartOf="@+id/addPhotoImageButton"
             android:contentDescription="@string/icon"
             android:layout_margin="@dimen/default_margin"
-            />
+            tools:layout_editor_absoluteX="51dp" />
         <ImageButton
             android:id="@+id/addPhotoImageButton"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:srcCompat="@drawable/ic_insert_photo_teal_24dp"
             app:layout_constraintStart_toEndOf="@id/cameraImageButton"
-            app:layout_constraintTop_toBottomOf="@id/placeEditText"
+            app:layout_constraintTop_toBottomOf="@+id/placeEditText"
             app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/icon"
             android:layout_margin="@dimen/default_margin"
-
-
-            />
+            tools:layout_editor_absoluteX="209dp" />
         <Button
             android:id="@+id/acceptButton"
             android:layout_width="340dp"
@@ -145,12 +144,10 @@
             android:textColor="@color/white_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cameraImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/cameraImageButton"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="@dimen/margin_button"
-            />
-
-
+            tools:layout_editor_absoluteX="10dp" />
     </android.support.constraint.ConstraintLayout>
     </ScrollView>
 </FrameLayout>
