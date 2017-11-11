@@ -5,7 +5,6 @@
     <string name="google_maps_key">"\nAIzaSyBVCxE0kj1dnZtkU4unQ6wcT0VOKYLc0I8\n    "</string>
     <string name="title_activity_home">Home</string>
     <string name="title_activity_maps">Maps</string>
-
     <string name="e_mail">E-Mail</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -23,7 +22,7 @@
     <string name="enter_your_income">Enter your income</string>
     <string name="add">ADD</string>
     <string name="place">Place</string>
-    <string name="hour">Hour</string>
+    <string name="date">Date</string>
     <string name="add_movement">Add movement</string>
     <string name="configuration">Configuration</string>
     <string name="save_changues">SAVE CHANGUES</string>
@@ -46,5 +45,8 @@
     <string name="confirm_your_information">Confirm your information</string>
     <string name="thanks_for_registering">Thanks for registering</string>
     <string name="welcome">Welcome</string>
+    <string name="resume">Resume</string>
+    <string name="outputs">Outputs</string>
+
 
 </resources>

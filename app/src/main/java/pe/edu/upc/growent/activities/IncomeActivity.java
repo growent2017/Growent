@@ -18,6 +18,7 @@ import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import pe.edu.upc.growent.R;
@@ -47,7 +48,11 @@ public class IncomeActivity extends AppCompatActivity {
 
                     int income =Integer.parseInt(incomeEditText.getText().toString());
                     user.setIncome(income);
+
+                    Toast t = Toast.makeText(IncomeActivity.this, String.valueOf(user.getIncome()), Toast.LENGTH_SHORT);
+                    t.show();
                     addIncome(user);
+
                     Bundle bundle = user.toBundle();
                     Context context = view.getContext();
                     Intent intent = new Intent(context, HomeActivity.class);
@@ -71,27 +76,31 @@ public class IncomeActivity extends AppCompatActivity {
     }
     public void addIncome(User exampleUser){
 
-        AndroidNetworking.put("https://growent-quickv98.c9users.io/users/id={id}?name={name}&email={email}&password={password}&income={income}")
-                .addPathParameter("id", String.valueOf(10))
-                .addPathParameter("name", "ALEXANDER")
-                .addPathParameter("email", exampleUser.getEmail())
-                .addPathParameter("password",exampleUser.getPassword())
-                .addPathParameter("income", String.valueOf(13))
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("name", exampleUser.getName());
+            jsonObject.put("email", exampleUser.getEmail());
+            jsonObject.put("password", exampleUser.getPassword());
+            jsonObject.put("income", String.valueOf(exampleUser.getIncome()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        AndroidNetworking.patch("https://growent-quickv98.c9users.io/users/{id}")
+                .addPathParameter("id",String.valueOf(exampleUser.getId()))
+                .addJSONObjectBody(jsonObject)
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                // do anything with response
-                                Toast t = Toast.makeText(IncomeActivity.this, user.getName() + user.getEmail(), Toast.LENGTH_SHORT);
-                                t.show();
-                            }
-                            @Override
-                            public void onError(ANError error) {
-                                // handle error
-                            }
-                        });
+                .getAsJSONArray(new JSONArrayRequestListener() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                    }
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                    });
     }
 }
 

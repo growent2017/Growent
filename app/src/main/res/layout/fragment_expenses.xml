@@ -69,24 +69,48 @@
             android:layout_marginTop="15dp" />
 
         <ImageView
+            android:id="@+id/iconCategoryImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_category_teal_24dp"
+            app:layout_constraintTop_toBottomOf="@+id/iconIncomeImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/icon"
+            android:layout_margin="@dimen/default_margin"
+            tools:layout_editor_absoluteX="8dp" />
+        <EditText
+            android:id="@+id/categoryEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="@string/add_category"
+            android:maxLength="25"
+            android:layout_margin="@dimen/default_margin"
+            app:layout_constraintStart_toEndOf="@id/iconIncomeImageView"
+            app:layout_constraintTop_toBottomOf="@+id/incomeEditText"
+            android:textColor="@color/primary_text"
+            tools:layout_editor_absoluteX="56dp"
+            android:layout_marginTop="15dp" />
+
+        <ImageView
             android:id="@+id/hourImageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:srcCompat="@drawable/ic_access_time_teal_24dp"
-            app:layout_constraintTop_toBottomOf="@+id/incomeEditText"
+            app:srcCompat="@drawable/ic_today_teal_24dp"
+            app:layout_constraintTop_toBottomOf="@+id/iconCategoryImageView"
             android:contentDescription="@string/icon"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="@dimen/default_margin"
             tools:layout_editor_absoluteX="8dp" />
         <EditText
-            android:id="@+id/hourEditText"
+            android:id="@+id/dateEditText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="@string/hour"
+            android:hint="@string/date"
             android:maxLength="25"
             app:layout_constraintStart_toEndOf="@id/hourImageView"
-            app:layout_constraintTop_toBottomOf="@+id/incomeEditText"
+            app:layout_constraintTop_toBottomOf="@+id/categoryEditText"
             android:textColor="@color/primary_text"
             android:layout_margin="@dimen/default_margin"
             tools:layout_editor_absoluteX="56dp" />
@@ -96,7 +120,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:srcCompat="@drawable/ic_person_pin_circle_teal_24dp"
-            app:layout_constraintTop_toBottomOf="@+id/hourEditText"
+            app:layout_constraintTop_toBottomOf="@+id/dateEditText"
             android:contentDescription="@string/icon"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="@dimen/default_margin"
@@ -109,14 +133,14 @@
             android:hint="@string/place"
             android:maxLength="25"
             app:layout_constraintStart_toEndOf="@id/placeImageView"
-            app:layout_constraintTop_toBottomOf="@+id/hourEditText"
+            app:layout_constraintTop_toBottomOf="@+id/dateEditText"
             android:textColor="@color/primary_text"
             android:layout_margin="@dimen/default_margin"
             tools:layout_editor_absoluteX="56dp" />
         <ImageButton
             android:id="@+id/cameraImageButton"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
             app:srcCompat="@drawable/ic_camera_alt_teal_24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/placeEditText"
@@ -126,8 +150,8 @@
             tools:layout_editor_absoluteX="51dp" />
         <ImageButton
             android:id="@+id/addPhotoImageButton"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
             app:srcCompat="@drawable/ic_insert_photo_teal_24dp"
             app:layout_constraintStart_toEndOf="@id/cameraImageButton"
             app:layout_constraintTop_toBottomOf="@+id/placeEditText"

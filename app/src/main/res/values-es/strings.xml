@@ -17,12 +17,12 @@
     <string name="icon">icon</string>
     <string name="find_you_account">Recupera tu cuenta</string>
     <string name="find_your_account_button">RECUPERA TU CUENTA</string>
-    <string name="income">Saldo</string>
+    <string name="income">Ingreso</string>
     <string name="what_is_your_monthly_income">¿Cuál es tu ingreso mensual?</string>
     <string name="enter_your_income">Monto total de tus ingresos al mes</string>
     <string name="add">Agregar</string>
     <string name="place">Lugar</string>
-    <string name="hour">Hora</string>
+    <string name="date">Fecha</string>
     <string name="add_movement">Agregar Movimiento</string>
     <string name="configuration">Configuration</string>
     <string name="save_changues">GUARDAR CAMBIOS</string>
@@ -45,5 +45,8 @@
     <string name="confirm_your_information">Confirma tu información</string>
     <string name="thanks_for_registering">Gracias por registrarse</string>
     <string name="welcome">Bienvenido</string>
+    <string name="resume">Resumen</string>
+    <string name="outputs">Salida</string>
+
 
 </resources>

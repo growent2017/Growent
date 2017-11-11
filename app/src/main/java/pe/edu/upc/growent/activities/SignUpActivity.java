@@ -18,6 +18,8 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import pe.edu.upc.growent.R;
 import pe.edu.upc.growent.models.User;
@@ -64,21 +66,27 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
     public void createUser(String name, String email,String password){
-        AndroidNetworking.get("https://growent-quickv98.c9users.io/users/new?name={name}&email={email}&password={password}")
-                .addPathParameter("name", name)
-                .addPathParameter("email", email)
-                .addPathParameter("password",password)
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("name", name);
+            jsonObject.put("email", email);
+            jsonObject.put("password", password);
+            jsonObject.put("income", "0");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        AndroidNetworking.post("https://growent-quickv98.c9users.io/users")
+                .addJSONObjectBody(jsonObject)
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsJSONArray(new JSONArrayRequestListener() {
                     @Override
                     public void onResponse(JSONArray response) {
-
                     }
                     @Override
                     public void onError(ANError error) {
-                        error.printStackTrace();
+                        // handle error
                     }
                 });
     }

@@ -9,4 +9,5 @@
     <color name="secondary_text">#757575</color>
     <color name="white_text">#FFFFFF</color>
     <color name="divider_text">#BDBDBD</color>
+    <color name="red_text">#FD0202</color>
 </resources>

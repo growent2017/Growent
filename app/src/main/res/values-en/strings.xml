@@ -21,7 +21,7 @@
     <string name="enter_your_income">Enter your income</string>
     <string name="add">ADD</string>
     <string name="place">Place</string>
-    <string name="hour">Hour</string>
+    <string name="date">Date</string>
     <string name="add_movement">Add movement</string>
     <string name="configuration">Configuration</string>
     <string name="save_changues">Save Changues</string>
@@ -45,4 +45,7 @@
     <string name="confirm_your_information">Confirm your information</string>
     <string name="thanks_for_registering">Thanks for registering</string>
     <string name="welcome">Welcome</string>
+    <string name="resume">Resume</string>
+    <string name="outputs">Outputs</string>
+
 </resources>
