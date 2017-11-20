@@ -80,7 +80,7 @@
                         tools:layout_editor_absoluteX="17dp" />
 
                     <TextView
-                        android:id="@+id/dataincomeTextView"
+                        android:id="@+id/dataIncomeTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"

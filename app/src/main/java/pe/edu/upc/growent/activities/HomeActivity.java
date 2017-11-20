@@ -12,9 +12,10 @@ import pe.edu.upc.growent.fragments.ExpensesFragment;
 import pe.edu.upc.growent.fragments.HomeFragment;
 import pe.edu.upc.growent.fragments.OtherCategory;
 import pe.edu.upc.growent.fragments.SettingFragment;
+import pe.edu.upc.growent.models.User;
 
 public class HomeActivity extends AppCompatActivity {
-
+    User user;
     private TextView mTextMessage;
 
 
@@ -31,6 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        user = User.fromBundle(getIntent().getExtras());
         setContentView(R.layout.activity_home);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

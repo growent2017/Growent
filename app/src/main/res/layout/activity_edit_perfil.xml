@@ -54,7 +54,6 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="@string/name_text"
         android:maxLength="25"
         app:layout_constraintStart_toEndOf="@id/iconNameImageView"
         app:layout_constraintTop_toBottomOf="@id/firstRelativeLayout"
@@ -82,6 +81,7 @@
         app:layout_constraintTop_toBottomOf="@id/nameEditText"
         android:layout_margin="@dimen/default_margin"
         android:textColor="@color/colorPrimaryDark"
+        android:enabled="false"
         />
 
     <ImageView
@@ -124,13 +124,14 @@
         android:id="@+id/incomeEditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:hint="@string/income"
         android:textColor="@color/colorPrimaryDark"
         android:maxLength="25"
         app:layout_constraintStart_toEndOf="@id/incomeImageView"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText"
         android:layout_margin="@dimen/default_margin"
+
 
         />
 
