@@ -67,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
                     email = true;
                     emailTextInputEditText.setError(null);
                     //Json
+                    Toast t = Toast.makeText(LoginActivity.this, getString(R.string.loading_resource), Toast.LENGTH_SHORT);
+                    t.show();
                     validateUser(emailTextInputEditText.getText().toString(),view);
                     //Intent intent = new Intent(LoginActivity.this, IncomeActivity.class);
                     //startActivity(intent);
@@ -87,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void validateUser(final String email, final View view){
-        AndroidNetworking.get("https://growent-quickv98.c9users.io/users.json")
+        AndroidNetworking.get("https://growent2017-quickv98.c9users.io/users.json")
                 .setPriority(Priority.LOW)
                 .setTag(getString(R.string.app_name))
                 .build()
@@ -99,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                         for (User user : users) {
                             if(user.getEmail()!= null) {
                                 if (user.getEmail().equalsIgnoreCase(email)) {
+
                                     invalidEmail = false;
                                     user_example = new User(user.getId(), user.getName(), user.getEmail(),
                                             user.getPassword(), user.getIncome());
@@ -108,8 +111,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                     //If is a new user
                                     if (user.getIncome() <= 0) {
-                                        Toast t = Toast.makeText(LoginActivity.this, getString(R.string.welcome) + user.getName(), Toast.LENGTH_SHORT);
-                                        t.show();
+                                        Toast t2 = Toast.makeText(LoginActivity.this, getString(R.string.welcome) + user.getName(), Toast.LENGTH_SHORT);
+                                        t2.show();
                                         Intent intent = new Intent(context, IncomeActivity.class);
                                         intent.putExtras(bundle);
                                         context.startActivity(intent);
@@ -117,8 +120,8 @@ public class LoginActivity extends AppCompatActivity {
                                     //If not is a new user
                                     else {
 
-                                        Toast t = Toast.makeText(LoginActivity.this, getString(R.string.welcome) + " " + user.getName(), Toast.LENGTH_SHORT);
-                                        t.show();
+                                        Toast t2 = Toast.makeText(LoginActivity.this, getString(R.string.welcome) + " " + user.getName(), Toast.LENGTH_SHORT);
+                                        t2.show();
                                         Intent intent = new Intent(context, HomeActivity.class);
                                         intent.putExtras(bundle);
                                         context.startActivity(intent);

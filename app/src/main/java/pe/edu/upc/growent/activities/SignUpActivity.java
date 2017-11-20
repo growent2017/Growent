@@ -75,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        AndroidNetworking.post("https://growent-quickv98.c9users.io/users")
+        AndroidNetworking.post("https://growent2017-quickv98.c9users.io/users.json")
                 .addJSONObjectBody(jsonObject)
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)

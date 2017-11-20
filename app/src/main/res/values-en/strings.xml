@@ -47,5 +47,6 @@
     <string name="welcome">Welcome</string>
     <string name="resume">Resume</string>
     <string name="outputs">Outputs</string>
+    <string name="loading_resource">Loading</string>
 
 </resources>

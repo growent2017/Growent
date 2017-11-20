@@ -1,6 +1,5 @@
 package pe.edu.upc.growent.fragments;
 
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -42,7 +41,6 @@ public class ExpensesFragment extends Fragment {
 
     private static final int PICK_IMAGE = 100;
     Uri imageUri;
-
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     EditText incomeEditText;
