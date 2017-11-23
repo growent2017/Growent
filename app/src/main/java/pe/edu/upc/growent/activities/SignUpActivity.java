@@ -101,6 +101,7 @@ public class SignUpActivity extends AppCompatActivity {
                 createUser(name,email,password);
                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         dialog.setNegativeButton(R.string.cancel,new DialogInterface.OnClickListener() {

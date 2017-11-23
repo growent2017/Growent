@@ -2,6 +2,7 @@ package pe.edu.upc.growent.fragments;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -33,6 +34,7 @@ import pe.edu.upc.growent.R;
 import pe.edu.upc.growent.activities.CategoryActivity;
 import pe.edu.upc.growent.activities.IncomeActivity;
 import pe.edu.upc.growent.activities.LoginActivity;
+import pe.edu.upc.growent.activities.MapsActivity2;
 import pe.edu.upc.growent.models.MovementRepository;
 
 import static android.app.Activity.RESULT_OK;
@@ -54,7 +56,12 @@ public class ExpensesFragment extends Fragment {
     ImageButton cameraImageButton;
     ImageButton addPhotoImageButton;
     EditText dateEditTex;
+    private int year,month, day;
     EditText categoryEditText;
+    //Calendar
+    private DatePicker datePicker;
+    private Calendar calendar;
+
 
     public ExpensesFragment() {
         // Required empty public constructor
@@ -64,8 +71,9 @@ public class ExpensesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment---------------------------------------------------------------------
         View view = inflater.inflate(R.layout.fragment_expenses, container, false);
+        //VIEWS------------------------------------------------------------------------------------------------------
         incomeEditText = (EditText) view.findViewById(R.id.incomeEditText);
         walletImageView = (ImageView) view.findViewById(R.id.walletImageView);
         categoryEditText = (EditText) view.findViewById(R.id.categoryEditText);
@@ -73,9 +81,11 @@ public class ExpensesFragment extends Fragment {
         cameraImageButton = (ImageButton) view.findViewById(R.id.cameraImageButton);
         addPhotoImageButton = (ImageButton) view.findViewById(R.id.addPhotoImageButton );
         dateEditTex = (EditText) view.findViewById(R.id.dateEditText);
-
-        //dateEditTex.setInputType(InputType.TYPE_NULL);
+        //OTHERS-----------------------------------------------------------------------------------------------------
+        dateEditTex.setInputType(InputType.TYPE_NULL);
         categoryEditText.setInputType(InputType.TYPE_NULL);
+        placeEditText.setInputType(InputType.TYPE_NULL);
+        //EVENTS----------------------------------------------------------------------------------------------------
         categoryEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,12 +93,38 @@ public class ExpensesFragment extends Fragment {
                 view.getContext().startActivity(intent);
             }
         });
+
         dateEditTex.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View view) {
+                final Calendar c = Calendar.getInstance();
+                month = c.get(Calendar.MONTH);
+                day = c.get(Calendar.DAY_OF_MONTH);
+                year = c.get(Calendar.YEAR);
 
-                                           public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int yearC, int monthOfYear, int dayOfMonth) {
+                        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                        c.set(Calendar.MONTH, monthOfYear);
+                        c.set(Calendar.YEAR,yearC);
 
-                                           }
-                                       });
+                        datePicker.init(yearC, monthOfYear, dayOfMonth,null);
+
+                        dateEditTex.setText(dayOfMonth + " / " + monthOfYear + " / " + yearC);
+                    }
+                }, year,month,day);
+                datePickerDialog.show();
+            }
+        });
+        placeEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MapsActivity2.class);
+                startActivity(intent);
+            }
+        });
         acceptButton = (Button) view.findViewById(R.id.acceptButton);
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +155,7 @@ public class ExpensesFragment extends Fragment {
         });
         return view;
     }
+    //FUNC--------------------------------------------------------------------------------------------------------
     private boolean validateData(){
         if(incomeEditText.getText().toString().isEmpty() || dateEditTex.getText().toString().isEmpty() ||
                 placeEditText.getText().toString().isEmpty())
@@ -153,4 +190,7 @@ public class ExpensesFragment extends Fragment {
             walletImageView .setImageURI(imageUri);
         }
     }
+
+
+
 }
