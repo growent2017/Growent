@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Growent</string>
-    <string name="google_maps_key">"\nAIzaSyBVCxE0kj1dnZtkU4unQ6wcT0VOKYLc0I8\n    "</string>
+    <string name="google_maps_key">"AIzaSyC4n3FWSVbeX7zfTzwPzYoWIM6knLtMwnk"</string>
     <string name="title_activity_home">Home</string>
     <string name="title_activity_maps">Maps</string>
     <string name="e_mail">E-Mail</string>
@@ -26,7 +26,7 @@
     <string name="add_movement">Add movement</string>
     <string name="configuration">Configuration</string>
     <string name="save_changues">SAVE CHANGUES</string>
-    <string name="category">Category</string>
+    <string name="category">Chose one</string>
     <string name="home">Home</string>
     <string name="shop">Shop</string>
     <string name="debts">Debts</string>
@@ -51,6 +51,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_category">Select Category</string>
+    <string name="title_activity_maps2">Map</string>
 
 
 </resources>

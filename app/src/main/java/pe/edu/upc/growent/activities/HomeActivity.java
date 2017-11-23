@@ -62,7 +62,6 @@ public class HomeActivity extends AppCompatActivity {
         {
             case R.id.navigation_home: return new HomeFragment();
             case R.id.navigation_expenses: return new ExpensesFragment();
-            case R.id.navigation_others: return new OtherCategory();
             case R.id.navigation_settings: return new SettingFragment();
         }
         return null;

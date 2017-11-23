@@ -55,6 +55,7 @@ public class SettingFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 getActivity().startActivity(intent);
+                getActivity().finish();
             }
         });
 

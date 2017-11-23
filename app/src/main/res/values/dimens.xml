@@ -7,4 +7,5 @@
     <dimen name="button_margin">4dp</dimen>
     <dimen name="margin_title">16dp</dimen>
     <dimen name="margin_example">32dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

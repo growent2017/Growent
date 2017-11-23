@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="pe.edu.upc.growent.activities.CategoryActivity"
+    tools:showIn="@layout/activity_category">
+
+    <RelativeLayout
+        android:id="@+id/firstRelativeLayout"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="@string/logo"
+        />
+    <TextView
+        android:id="@+id/titleCategoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:textColor="@color/white_text"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/margin_title"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp" />
+
+
+
+    <Button
+        android:id="@+id/firstcategoryButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/home"
+        android:textColor="@color/white_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstRelativeLayout"
+        android:layout_margin="@dimen/margin_button"
+        android:textSize="16sp"
+        />
+
+    <Button
+        android:id="@+id/secondcategoryButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/shop"
+        android:textColor="@color/white_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstcategoryButton"
+        android:layout_margin="@dimen/margin_button"
+        android:textSize="16sp"
+        />
+
+    <Button
+        android:id="@+id/nextcategoryButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/debts"
+        android:textColor="@color/white_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/secondcategoryButton"
+        android:layout_margin="@dimen/margin_button"
+        android:textSize="16sp"
+        />
+    <ImageView
+        android:id="@+id/addcateoryImageView"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        app:srcCompat="@drawable/ic_add_box_teal_24dp"
+        android:contentDescription="@string/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/margin_title"
+        />
+    <TextView
+        android:id="@+id/descriptionEditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_category"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/addcateoryImageView"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="@dimen/margin_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

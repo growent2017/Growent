@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         signUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MapsActivity2.class);
                 startActivity(intent);
             }
         });
@@ -116,6 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Intent intent = new Intent(context, IncomeActivity.class);
                                         intent.putExtras(bundle);
                                         context.startActivity(intent);
+                                        finish();
                                     }
                                     //If not is a new user
                                     else {
@@ -125,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Intent intent = new Intent(context, HomeActivity.class);
                                         intent.putExtras(bundle);
                                         context.startActivity(intent);
+                                        finish();
 
                                     }
                                 }

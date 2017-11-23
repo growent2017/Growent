@@ -8,18 +8,26 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/firstRelativeLayout"
+            android:layout_width="600dp"
+            android:layout_height="20dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="@string/logo"
+            />
         <LinearLayout
             android:id="@+id/firstConstraintLayout"
             android:layout_width="344dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/firstRelativeLayout"
+            tools:layout_editor_absoluteX="8dp">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/totalCardView"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="190dp"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="6dp"
                 app:cardElevation="4dp"
@@ -39,10 +47,12 @@
                         android:layout_margin="@dimen/default_margin"
                         android:text="@string/resume"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="23sp"
+                        android:textSize="25sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:layout_editor_absoluteX="13dp" />
+                        tools:layout_editor_absoluteX="24dp"
+                        android:textStyle="bold"
+                        />
 
                     <View
                         android:id="@+id/firstLineView"
@@ -53,7 +63,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/resumeTextView"
-                        tools:layout_editor_absoluteX="2dp" />
+                        tools:layout_editor_absoluteX="20dp" />
 
                     <TextView
                         android:id="@+id/incomeTextView"
@@ -65,7 +75,7 @@
                         android:textSize="21sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/firstLineView"
-                        tools:layout_editor_absoluteX="17dp" />
+                        tools:layout_editor_absoluteX="28dp" />
 
                     <TextView
                         android:id="@+id/outputsTextView"
@@ -77,7 +87,7 @@
                         android:textSize="21sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/incomeTextView"
-                        tools:layout_editor_absoluteX="17dp" />
+                        tools:layout_editor_absoluteX="28dp" />
 
                     <TextView
                         android:id="@+id/dataIncomeTextView"
@@ -89,7 +99,7 @@
                         android:textSize="21sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/firstLineView"
-                        tools:layout_editor_absoluteX="221dp" />
+                        tools:layout_editor_absoluteX="250dp" />
 
                     <TextView
                         android:id="@+id/dataOutputTextView"
@@ -101,7 +111,7 @@
                         android:textSize="21sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/incomeTextView"
-                        tools:layout_editor_absoluteX="231dp" />
+                        tools:layout_editor_absoluteX="260dp" />
 
                     <View
                         android:id="@+id/secondLineView"
@@ -111,7 +121,7 @@
                         android:background="@color/secondary_text"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/dataOutputTextView"
-                        tools:layout_editor_absoluteX="209dp" />
+                        tools:layout_editor_absoluteX="236dp" />
 
                     <TextView
                         android:id="@+id/totalTextView"
@@ -123,28 +133,125 @@
                         android:textSize="21sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/secondLineView"
-                        tools:layout_editor_absoluteX="231dp" />
+                        tools:layout_editor_absoluteX="260dp" />
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.v7.widget.CardView>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/secondConstraintLayout"
-            android:layout_width="350dp"
-            android:layout_height="365dp"
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstConstraintLayout">
+            app:layout_constraintTop_toBottomOf="@+id/firstConstraintLayout"
+            tools:layout_editor_absoluteX="8dp">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/homeRecyclerView"
+            <android.support.v7.widget.CardView
+                android:id="@+id/secondCardView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="310dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:cardUseCompatPadding="true">
 
-            </android.support.v7.widget.RecyclerView>
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
+                    <TextView
+                        android:id="@+id/numberDayTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:text="07"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="50sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/dayTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="martes"
+                        android:textColor="@color/primary_text"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@id/numberDayTextView"
+                        app:layout_constraintTop_toTopOf="@id/numberDayTextView"/>
+                    <TextView
+                        android:id="@+id/monthTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="noviembre 2017"
+                        android:textColor="@color/secondary_text"
+                        app:layout_constraintTop_toBottomOf="@id/dayTextView"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@id/numberDayTextView" />
+                    <TextView
+                        android:id="@+id/dayIncomeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:text="S/. 300"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="21sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/first2LineView"
+                        />
+
+                    <View
+                        android:id="@+id/first2LineView"
+                        android:layout_width="300dp"
+                        android:layout_height="1dp"
+                        android:layout_margin="@dimen/default_margin"
+                        android:background="@color/secondary_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/numberDayTextView"
+                        tools:layout_editor_absoluteX="20dp" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/homeRecyclerView"
+                            android:layout_width="312dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="@dimen/default_margin"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/first2LineView"
+                            tools:layout_editor_absoluteX="8dp">
+
+                        </android.support.v7.widget.RecyclerView>
+                    <View
+                        android:id="@+id/second2LineView"
+                        android:layout_width="100dp"
+                        android:layout_height="1dp"
+                        android:layout_margin="@dimen/default_margin"
+                        android:background="@color/secondary_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/homeRecyclerView"
+                        tools:layout_editor_absoluteX="236dp" />
+
+                    <TextView
+                        android:id="@+id/total2TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:text="S/.  650"
+                        android:textColor="@color/primary_text"
+                        android:textSize="21sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/second2LineView" />
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 

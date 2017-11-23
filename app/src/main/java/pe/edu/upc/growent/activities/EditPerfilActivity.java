@@ -53,8 +53,11 @@ public class EditPerfilActivity extends AppCompatActivity {
         arrowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EditPerfilActivity.this, HomeActivity.class);
-                startActivity(intent);
+                Bundle bundle = user.toBundle();
+                Context context = view.getContext();
+                Intent intent = new Intent(context, HomeActivity.class);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
 
             }
         });

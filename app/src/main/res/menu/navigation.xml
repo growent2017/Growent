@@ -12,10 +12,6 @@
         android:title="Gastos" />
 
     <item
-        android:id="@+id/navigation_others"
-        android:icon="@drawable/ic_view_week_teal_24dp"
-        android:title="Categorias" />
-    <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings_teal_24dp"
         android:title="Ajustes" />

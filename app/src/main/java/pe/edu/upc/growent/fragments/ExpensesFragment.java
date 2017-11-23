@@ -12,6 +12,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +27,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Calendar;
+import java.util.Date;
 
 import pe.edu.upc.growent.R;
+import pe.edu.upc.growent.activities.CategoryActivity;
+import pe.edu.upc.growent.activities.IncomeActivity;
 import pe.edu.upc.growent.activities.LoginActivity;
 import pe.edu.upc.growent.models.MovementRepository;
 
@@ -50,7 +54,8 @@ public class ExpensesFragment extends Fragment {
     ImageButton cameraImageButton;
     ImageButton addPhotoImageButton;
     EditText dateEditTex;
-    private int year,month, day;
+    EditText categoryEditText;
+
     public ExpensesFragment() {
         // Required empty public constructor
     }
@@ -63,30 +68,25 @@ public class ExpensesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_expenses, container, false);
         incomeEditText = (EditText) view.findViewById(R.id.incomeEditText);
         walletImageView = (ImageView) view.findViewById(R.id.walletImageView);
+        categoryEditText = (EditText) view.findViewById(R.id.categoryEditText);
         placeEditText = (EditText) view.findViewById(R.id.placeEditText);
         cameraImageButton = (ImageButton) view.findViewById(R.id.cameraImageButton);
         addPhotoImageButton = (ImageButton) view.findViewById(R.id.addPhotoImageButton );
         dateEditTex = (EditText) view.findViewById(R.id.dateEditText);
+
+        //dateEditTex.setInputType(InputType.TYPE_NULL);
+        categoryEditText.setInputType(InputType.TYPE_NULL);
+        categoryEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CategoryActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
         dateEditTex.setOnClickListener(new View.OnClickListener() {
-                                           @RequiresApi(api = Build.VERSION_CODES.N)
-                                           @Override
+
                                            public void onClick(View view) {
-                                               final Calendar c = Calendar.getInstance();
 
-
-                                               DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
-                                                   @Override
-                                                   public void onDateSet(DatePicker datePicker, int yearC, int monthOfYear, int dayOfMonth) {
-                                                       c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                                                       c.set(Calendar.MONTH, monthOfYear);
-                                                       c.set(Calendar.YEAR,yearC);
-
-                                                       datePicker.init(yearC, monthOfYear, dayOfMonth,null);
-
-                                                       dateEditTex.setText(dayOfMonth + " / " + monthOfYear + " / " + yearC);
-                                                   }
-                                               }, day, month, year);
-                                               datePickerDialog.show();
                                            }
                                        });
         acceptButton = (Button) view.findViewById(R.id.acceptButton);
@@ -118,8 +118,6 @@ public class ExpensesFragment extends Fragment {
             }
         });
         return view;
-
-
     }
     private boolean validateData(){
         if(incomeEditText.getText().toString().isEmpty() || dateEditTex.getText().toString().isEmpty() ||
@@ -137,8 +135,6 @@ public class ExpensesFragment extends Fragment {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
     }
-
-
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
